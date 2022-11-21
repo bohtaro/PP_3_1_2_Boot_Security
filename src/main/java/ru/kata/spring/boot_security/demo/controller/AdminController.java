@@ -28,7 +28,7 @@ public class AdminController {
     @GetMapping("/admin/new")
     public String newUserPage(Model model) {
         User user = new User();
-        List<Role> listRoles = userService.listRoles();
+        List<Role> listRoles = userService.getListRoles();
         model.addAttribute("listRoles", listRoles);
         model.addAttribute("user", user);
 
@@ -41,8 +41,8 @@ public class AdminController {
         return "redirect:/admin/user_list";
     }
 
-    @GetMapping("/admin/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") Long id) {
+    @DeleteMapping("/admin/delete/{id}")
+    public String deleteUser(@PathVariable(name = "id") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin/user_list";
     }
@@ -51,7 +51,7 @@ public class AdminController {
     public ModelAndView editUserPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit");
         User user = userService.findById((long) id);
-        List<Role> listRoles = userService.listRoles();
+        List<Role> listRoles = userService.getListRoles();
         mav.addObject("listRoles", listRoles);
         mav.addObject("user", user);
 

@@ -32,9 +32,13 @@
             <td th:each="role : ${user.roles}">
                 <span th:text="${role.name}"> </span> </td>
             <td>
-                <a th:href="@{'/admin/edit/' + ${user.id}}">Edit</a>
-                &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/admin/delete/' + ${user.id}}">Delete</a>
+                <form method="GET" th:action="@{'/admin/edit/' + ${user.id}}">
+                    <input type="submit" value="Edit"/>
+                </form>
+
+                <form th:method="DELETE" th:action="@{'/admin/delete/' + ${user.id}}">
+                    <input type="submit" value="Delete"/>
+                </form>
             </td>
         </tr>
         </tbody>

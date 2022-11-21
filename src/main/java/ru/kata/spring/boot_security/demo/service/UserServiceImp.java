@@ -33,13 +33,13 @@ public class UserServiceImp implements UserService{
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
-
+    @Transactional
     @Override
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
-
+    @Transactional
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
@@ -54,7 +54,7 @@ public class UserServiceImp implements UserService{
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
-
+    @Transactional
     @Override
     public void updateUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -62,7 +62,7 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public List<Role> listRoles() {
+    public List<Role> getListRoles() {
         return roleRepository.findAll();
     }
 

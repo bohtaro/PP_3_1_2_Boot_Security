@@ -18,5 +18,5 @@ public interface UserService extends UserDetailsService {
 
     void updateUser(User user);
 
-    List<Role> listRoles();
+    List<Role> getListRoles();
 }
