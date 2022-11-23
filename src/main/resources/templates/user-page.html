@@ -20,7 +20,7 @@
         <tr th:each="user:${oneUser}">
             <td th:text="${oneUser.getId}"></td>
             <td th:text="${oneUser.username}"></td>
-            <td th:text="${oneUser.name}"></td>
+            <td th:text="${oneUser.getRoles()}"></td>
             <td th:text="${oneUser.email}"></td>
 
     </table>

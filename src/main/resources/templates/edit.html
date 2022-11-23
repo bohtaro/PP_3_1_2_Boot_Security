@@ -10,7 +10,7 @@
   <h1>Edit User</h1>
   <br />
   <form action="#" th:action="@{/admin/update}" th:object="${user}"
-        method="post">
+        th:method="patch">
 
     <table border="0" cellpadding="10">
       <tr>
@@ -37,7 +37,7 @@
       </tr>
       <tr>
         <td>Password</td>
-        <td><input type="text" th:field="*{password}" /></td>
+        <td><input type="password" th:field="*{password}" /></td>
       </tr>
       <tr>
         <div class="form-group row">

@@ -23,6 +23,7 @@ public class AdminController {
     @GetMapping(value = "/admin/user_list")
     public String getUsers(ModelMap model) {
         model.addAttribute("user", userService.getAllUsers());
+
         return "users_list";
     }
     @GetMapping("/admin/new")
@@ -58,7 +59,7 @@ public class AdminController {
         return mav;
     }
 
-    @PostMapping(value = "/admin/update")
+    @PatchMapping(value = "/admin/update")
     public String saveChangeUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
 
